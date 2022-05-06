@@ -1,6 +1,8 @@
 import React from "react";
-
+import SetProducts from "../Shared/Hooks/SetProducts";
+import Item from "./Item";
 const ManageItems = () => {
+  const [Products] = SetProducts();
   return (
     <div className="container">
       <table className="table table-hover">
@@ -14,16 +16,9 @@ const ManageItems = () => {
             <th scope="col"></th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
-          </tr>
-        </tbody>
+        {Products.map((Prorduct) => (
+          <Item key={Prorduct._id} Prorduct={Prorduct}></Item>
+        ))}
       </table>
     </div>
   );

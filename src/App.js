@@ -54,7 +54,7 @@ function App() {
             }
           ></Route>
           <Route
-            path="/ManageItems/:id"
+            path="/ManageItems/:productID"
             element={
               <RequireAuth>
                 <UpdateItem></UpdateItem>
