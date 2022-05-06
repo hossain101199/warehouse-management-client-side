@@ -117,7 +117,7 @@ const CreateAccount = () => {
   }, [user, Googleuser]);
   // ---------------------------------------------------------
   return (
-    <div className="w-75 m-auto">
+    <div className="w-75 m-auto container">
       <form className="mb-3">
         <div className="mb-3">
           <label className="form-label">Your full name</label>

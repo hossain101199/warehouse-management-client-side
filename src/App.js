@@ -10,6 +10,8 @@ import Footer from "./Components/Pages/Shared/Footer/Footer";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import AddItems from "./Components/Pages/ManageItems/AddItems/AddItems";
 import { ToastContainer } from "react-toastify";
+import Blogs from "./Components/Pages/Blogs/Blogs";
+import UpdateItem from "./Components/Pages/UpdateItem/UpdateItem";
 
 function App() {
   return (
@@ -40,6 +42,22 @@ function App() {
             element={
               <RequireAuth>
                 <Myitems></Myitems>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/Blogs"
+            element={
+              <RequireAuth>
+                <Blogs></Blogs>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/ManageItems/:id"
+            element={
+              <RequireAuth>
+                <UpdateItem></UpdateItem>
               </RequireAuth>
             }
           ></Route>

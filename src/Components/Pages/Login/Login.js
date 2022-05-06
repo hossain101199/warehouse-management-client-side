@@ -17,7 +17,7 @@ const Login = () => {
     }
   }, [Googleuser]);
   return (
-    <div className="w-75 m-auto">
+    <div className="w-75 m-auto container">
       <form className="mb-3">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
@@ -46,7 +46,7 @@ const Login = () => {
             We'll never share your email with anyone else.
           </div>
         </div>
-        <div className="btn mb-3">
+        <div type="button" className="mb-3">
           <p>Forgot Password?</p>
         </div>
         <button type="submit" className="btn btn-outline-success w-100">

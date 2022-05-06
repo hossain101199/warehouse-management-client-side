@@ -1,9 +1,9 @@
 import React from "react";
-import ManageItems from "../ManageItems";
 
-const AddItems = () => {
+const UpdateItem = () => {
   return (
     <div className="container">
+      <h1>UpdateItem</h1>
       <form className="row g-3">
         <div className="col-md-6">
           <label htmlFor="Name" className="form-label">
@@ -49,13 +49,12 @@ const AddItems = () => {
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-outline-success">
-            Ad to stock
+            Update Item
           </button>
         </div>
       </form>
-      <ManageItems></ManageItems>
     </div>
   );
 };
 
-export default AddItems;
+export default UpdateItem;
