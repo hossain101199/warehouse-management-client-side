@@ -23,7 +23,6 @@ const AddItems = () => {
       Email,
       Description,
     };
-    console.log(product);
     // send data to the server
     fetch("https://healthy-health-warehouse.herokuapp.com/products", {
       method: "POST",
@@ -34,8 +33,7 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("success", data);
-        alert("users added successfully!!!");
+        alert("product added successfully!");
         e.target.reset();
       });
   };

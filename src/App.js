@@ -9,7 +9,6 @@ import Login from "./Components/Pages/Login/Login";
 import Footer from "./Components/Pages/Shared/Footer/Footer";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import AddItems from "./Components/Pages/ManageItems/AddItems/AddItems";
-import { ToastContainer } from "react-toastify";
 import Blogs from "./Components/Pages/Blogs/Blogs";
 import UpdateItem from "./Components/Pages/UpdateItem/UpdateItem";
 
@@ -68,7 +67,6 @@ function App() {
           <Route path="/Login" element={<Login></Login>}></Route>
         </Routes>
         <Footer></Footer>
-        <ToastContainer></ToastContainer>
       </div>
     </div>
   );
