@@ -140,8 +140,9 @@ const AddItems = () => {
           </button>
         </div>
       </form>
+      <hr />
       <Link to="/ManageItems">
-        <button type="button" className="mt-3 btn btn-outline-success">
+        <button type="button" className="w-100 btn btn-outline-success">
           Manage all product <i className="fa-solid fa-arrow-right"></i>
         </button>
       </Link>

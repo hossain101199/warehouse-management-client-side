@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 import googlelogo from "../../../Images/Logo-google-icon-PNG.png";
 import {
+  useSendPasswordResetEmail,
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
@@ -78,9 +79,18 @@ const Login = () => {
     }
   };
   // ---------------------------------------------------------
+  const [sendPasswordResetEmail, sending, error] =
+    useSendPasswordResetEmail(auth);
+  const handleForgotpass = () => {
+    if (!userInfo.email) {
+      setusererror({ ...usererror, email: "Please enter your email" });
+    } else {
+      sendPasswordResetEmail(userInfo.email);
+    }
+  };
   useEffect(() => {
-    if (EmailAndPassworderror || Googleusererror) {
-      toast.error(EmailAndPassworderror?.message || Googleusererror?.message, {
+    if (sending) {
+      toast.success(sending?.message, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -90,7 +100,26 @@ const Login = () => {
         progress: undefined,
       });
     }
-  }, [Googleusererror, EmailAndPassworderror]);
+  }, [sending]);
+  // ---------------------------------------------------------
+  useEffect(() => {
+    if (EmailAndPassworderror || Googleusererror || error) {
+      toast.error(
+        EmailAndPassworderror?.message ||
+          Googleusererror?.message ||
+          error?.message,
+        {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        }
+      );
+    }
+  }, [Googleusererror, EmailAndPassworderror, error]);
   // ---------------------------------------------------------
   useEffect(() => {
     if (loading || EmailAndPasswordloading) {
@@ -143,7 +172,7 @@ const Login = () => {
             <div className="form-text text-danger">{usererror.password}</div>
           )}
         </div>
-        <div type="button" className="mb-3">
+        <div type="button" onClick={handleForgotpass} className="mb-3">
           <p>Forgot Password?</p>
         </div>
         <button

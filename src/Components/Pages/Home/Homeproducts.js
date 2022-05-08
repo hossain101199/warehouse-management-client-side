@@ -29,13 +29,13 @@ const Homeproducts = () => {
 
   return (
     <div>
-      <h2 className="text-center">Healthy Health products</h2>
-      <div className="row row-cols-1 row-cols-md-3 g-4">
+      <h2 className="mt-3 text-center">Healthy Health products</h2>
+      <div className="mt-3 row row-cols-1 row-cols-md-3 g-4">
         {Products.map((Product) => (
           <HomeItem key={Product._id} Prorduct={Product}></HomeItem>
         ))}
       </div>
-
+      <hr />
       <ul className="mt-3 pagination justify-content-center">
         {[...Array(pageCount).keys()].map((number) => (
           <li
@@ -61,8 +61,9 @@ const Homeproducts = () => {
           <option value="15">15</option>
         </select>
       </ul>
-      <Link to="/ManageItems" className="w-100">
-        <button type="button" className="btn btn-outline-success">
+      <hr />
+      <Link to="/ManageItems">
+        <button type="button" className="w-100 btn btn-outline-success">
           Manage all product <i className="fa-solid fa-arrow-right"></i>
         </button>
       </Link>

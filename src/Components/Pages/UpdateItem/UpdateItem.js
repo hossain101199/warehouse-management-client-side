@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import auth from "../../../firebase.init";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -54,7 +54,8 @@ const UpdateItem = () => {
       .then((res) => res.json())
       .then((data) => {
         setreload(!reload);
-        toast.success("product updated successfully!", {
+        e.target.reset();
+        toast.success("stock updated successfully!", {
           position: "top-center",
           autoClose: 5000,
           hideProgressBar: false,
@@ -63,7 +64,6 @@ const UpdateItem = () => {
           draggable: true,
           progress: undefined,
         });
-        e.target.reset();
       });
   };
   const delivered = () => {
@@ -109,6 +109,23 @@ const UpdateItem = () => {
         });
       });
   };
+  // ------------------------------------------------------------------------------
+  const navigate = useNavigate();
+  const handleDelete = (id) => {
+    const DeleteAlert = window.confirm("Are you sure you want to delete?");
+    if (DeleteAlert) {
+      const url = `https://healthy-health-warehouse.herokuapp.com/products/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          navigate("/ManageItems");
+        });
+    }
+  };
+  // ------------------------------------------------------------------------------
+
   return (
     <div className="container">
       <h1 className="text-center">Update Item: {selectedproduct._id}</h1>
@@ -132,6 +149,14 @@ const UpdateItem = () => {
           </button>
         </div>
       </div>
+      <hr />
+      <button
+        onClick={() => handleDelete(selectedproduct._id)}
+        type="button"
+        className="w-100 btn btn-outline-danger"
+      >
+        Delete this product
+      </button>
       <hr />
       <form onSubmit={handleUpdateItems} className="row g-3">
         <div className="col-md-6">
@@ -230,6 +255,12 @@ const UpdateItem = () => {
           </button>
         </div>
       </form>
+      <hr />
+      <Link to="/ManageItems">
+        <button type="button" className="w-100 btn btn-outline-success">
+          Manage all product <i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </Link>
       <ToastContainer></ToastContainer>
     </div>
   );

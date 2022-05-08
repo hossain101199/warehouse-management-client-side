@@ -14,7 +14,6 @@ const ManageItems = () => {
         .then((res) => res.json())
         .then((data) => {
           const remaining = Products.filter((product) => product._id !== id);
-          console.log(remaining);
           setProducts(remaining);
         });
     }
@@ -41,8 +40,9 @@ const ManageItems = () => {
           ></Item>
         ))}
       </table>
+      <hr />
       <Link to="/AddItems">
-        <button type="button" className="btn btn-outline-success">
+        <button type="button" className="w-100 btn btn-outline-success">
           Add products <i className="fa-solid fa-arrow-right"></i>
         </button>
       </Link>
