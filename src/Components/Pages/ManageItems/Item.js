@@ -1,21 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import SetProducts from "../Shared/Hooks/SetProducts";
 
-const Item = ({ Prorduct }) => {
+const Item = ({ Prorduct, handleDelete }) => {
   const { _id, Name, Price, Quantity, Supplier, Image } = Prorduct;
-  const handleDelete = (id) => {
-    const DeleteAlert = window.confirm("Are you sure you want to delete?");
-    if (DeleteAlert) {
-      const url = `https://healthy-health-warehouse.herokuapp.com/products/${id}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.deletedCount > 0) {
-            console.log("deleted");
-          }
-        });
-    }
+  const navigate = useNavigate();
+  const navigateToupdate = (id) => {
+    navigate(`/ManageItems/${id}`);
   };
   return (
     <tbody>
@@ -29,7 +20,11 @@ const Item = ({ Prorduct }) => {
         <td>{Quantity}</td>
         <td>{Supplier}</td>
         <td>
-          <button type="button" className="btn btn-outline-success me-3">
+          <button
+            onClick={() => navigateToupdate(_id)}
+            type="button"
+            className="btn btn-outline-success me-3"
+          >
             Update
           </button>
           <button

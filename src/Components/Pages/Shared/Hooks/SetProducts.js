@@ -7,7 +7,7 @@ const SetProducts = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
-  return [Products, SetProducts];
+  return [Products, setProducts];
 };
 
 export default SetProducts;

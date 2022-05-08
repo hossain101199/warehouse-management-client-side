@@ -11,6 +11,7 @@ import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import AddItems from "./Components/Pages/ManageItems/AddItems/AddItems";
 import Blogs from "./Components/Pages/Blogs/Blogs";
 import UpdateItem from "./Components/Pages/UpdateItem/UpdateItem";
+import Page404 from "./Components/Pages/Page404/Page404";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
             element={<CreateAccount></CreateAccount>}
           ></Route>
           <Route path="/Login" element={<Login></Login>}></Route>
+          <Route path="*" element={<Page404></Page404>}></Route>
         </Routes>
         <Footer></Footer>
       </div>

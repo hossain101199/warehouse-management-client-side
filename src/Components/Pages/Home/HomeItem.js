@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const HomeItem = ({ Prorduct }) => {
   const { _id, Name, Price, Quantity, Supplier, Image, Description } = Prorduct;
 
+  const navigate = useNavigate();
+
+  const navigateToupdate = (id) => {
+    navigate(`/ManageItems/${id}`);
+  };
   return (
     <div className="col">
       <div className="card h-100">
@@ -15,8 +21,14 @@ const HomeItem = ({ Prorduct }) => {
           <p className="card-text">Supplier: {Supplier}</p>
           <p className="card-text">{Description}</p>
         </div>
-        <div className="card-footer">
-          <small className="text-muted">Last updated 3 mins ago</small>
+        <div>
+          <button
+            onClick={() => navigateToupdate(_id)}
+            type="button"
+            className="w-100 btn btn-outline-success"
+          >
+            Manage product
+          </button>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ const Footer = () => {
   const d = new Date();
   const year = d.getFullYear();
   return (
-    <div className="text-center text-white bg-dark p-3">
+    <div className="text-center text-white bg-dark p-3 mt-3">
       <h5>
         <i className="fa-regular fa-copyright"></i> {year} | Healthy Health |
         All Rights Reserved.

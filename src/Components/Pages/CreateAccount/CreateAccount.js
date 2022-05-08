@@ -6,8 +6,10 @@ import {
   useCreateUserWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
-import { toast, ToastContainer } from "react-toastify";
 import Loding from "../Shared/Loding/Loding";
+
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateAccount = () => {
   // ---------------------------------------------------------
@@ -87,9 +89,9 @@ const CreateAccount = () => {
   };
   // ---------------------------------------------------------
   useEffect(() => {
-    const Error = error || Googleerror;
-    if (Error) {
-      toast.warn(Error?.message, {
+    if (Googleerror || error) {
+      console.log(error);
+      toast.error(error?.message || Googleerror?.message, {
         position: "top-center",
         autoClose: 5000,
         hideProgressBar: false,
@@ -99,7 +101,7 @@ const CreateAccount = () => {
         progress: undefined,
       });
     }
-  }, [error, Googleerror]);
+  }, [Googleerror, error]);
   // ---------------------------------------------------------
   useEffect(() => {
     if (loading || Googleloading) {
@@ -118,7 +120,7 @@ const CreateAccount = () => {
   // ---------------------------------------------------------
   return (
     <div className="w-75 m-auto container">
-      <form className="mb-3">
+      <form onSubmit={handlecreateUser} className="mb-3">
         <div className="mb-3">
           <label className="form-label">Your full name</label>
           <input
@@ -139,6 +141,7 @@ const CreateAccount = () => {
             className="form-control"
             id="exampleInputEmail1"
             aria-describedby="emailHelp"
+            required
           />
           {usererror?.email && (
             <div id="emailHelp" className="form-text text-danger">
@@ -156,6 +159,7 @@ const CreateAccount = () => {
             name="password"
             className="form-control"
             id="exampleInputPassword1"
+            required
           />
           {usererror?.password && (
             <div className="form-text text-danger">{usererror.password}</div>
@@ -171,13 +175,10 @@ const CreateAccount = () => {
             name="Confirmpassword"
             className="form-control"
             id="exampleInputPassword"
+            required
           />
         </div>
-        <button
-          onClick={handlecreateUser}
-          type="submit"
-          className="btn btn-outline-success w-100"
-        >
+        <button type="submit" className="btn btn-outline-success w-100">
           SIGN UP
         </button>
       </form>

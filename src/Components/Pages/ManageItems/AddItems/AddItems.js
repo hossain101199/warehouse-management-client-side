@@ -1,7 +1,9 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
 import auth from "../../../../firebase.init";
-import ManageItems from "../ManageItems";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddItems = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -33,7 +35,15 @@ const AddItems = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert("product added successfully!");
+        toast.success("product added successfully!", {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
         e.target.reset();
       });
   };
@@ -125,12 +135,17 @@ const AddItems = () => {
           ></textarea>
         </div>
         <div className="col-12">
-          <button type="submit" className="btn btn-outline-success">
+          <button type="submit" className="w-100 btn btn-outline-success">
             Ad to stock
           </button>
         </div>
       </form>
-      <ManageItems></ManageItems>
+      <Link to="/ManageItems">
+        <button type="button" className="mt-3 btn btn-outline-success">
+          Manage all product <i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </Link>
+      <ToastContainer></ToastContainer>
     </div>
   );
 };

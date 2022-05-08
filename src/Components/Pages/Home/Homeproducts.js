@@ -31,12 +31,12 @@ const Homeproducts = () => {
     <div>
       <h2 className="text-center">Healthy Health products</h2>
       <div className="row row-cols-1 row-cols-md-3 g-4">
-        {Products.map((Prorduct) => (
-          <HomeItem key={Prorduct._id} Prorduct={Prorduct}></HomeItem>
+        {Products.map((Product) => (
+          <HomeItem key={Product._id} Prorduct={Product}></HomeItem>
         ))}
       </div>
 
-      <ul className="pagination justify-content-center">
+      <ul className="mt-3 pagination justify-content-center">
         {[...Array(pageCount).keys()].map((number) => (
           <li
             key={number}
@@ -48,7 +48,7 @@ const Homeproducts = () => {
             </Link>
           </li>
         ))}
-        <span> | </span>
+        <span> __ </span>
         <select
           id="inputState"
           onChange={(e) => setpagesize(e.target.value)}
@@ -61,6 +61,11 @@ const Homeproducts = () => {
           <option value="15">15</option>
         </select>
       </ul>
+      <Link to="/ManageItems" className="w-100">
+        <button type="button" className="btn btn-outline-success">
+          Manage all product <i className="fa-solid fa-arrow-right"></i>
+        </button>
+      </Link>
     </div>
   );
 };
