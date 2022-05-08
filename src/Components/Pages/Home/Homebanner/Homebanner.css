@@ -1,0 +1,172 @@
+.image {
+  background-image: url("../../../../Images/EP_11032015_mushroom_inset.jpg");
+  background-color: #cccccc;
+  height: 100vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+/* 
+.banner-title {
+  font-size: 60px;
+  white-space: nowrap;
+  position: relative;
+  color: transparent;
+}
+.banner-title::before {
+  content: "Habiba's Website";
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: lightseagreen;
+  animation: typing 3s linear infinite;
+}
+@keyframes typing {
+  0% {
+    content: " |";
+  }
+
+  4% {
+    content: " H|";
+  }
+
+  8% {
+    content: " He|";
+  }
+
+  12% {
+    content: " Hea|";
+  }
+
+  16% {
+    content: " Heal|";
+  }
+
+  20% {
+    content: " Healt|";
+  }
+
+  24% {
+    content: " Health|";
+  }
+
+  28% {
+    content: " Healthy|";
+  }
+
+  32% {
+    content: " Healthy |";
+  }
+
+  36% {
+    content: " Healthy H|";
+  }
+
+  40% {
+    content: " Healthy He|";
+  }
+
+  44% {
+    content: " Healthy Hea|";
+  }
+
+  48% {
+    content: " Healthy Heal|";
+  }
+
+  52% {
+    content: " Healthy Healt|";
+  }
+
+  56% {
+    content: " Healthy Health|";
+  }
+
+  60% {
+    content: " Healthy Health |";
+  }
+
+  64%,
+  83% {
+    content: " Healthy Health |";
+  }
+
+  84% {
+    content: " Healthy Health|";
+  }
+
+  85% {
+    content: " Healthy Healt|";
+  }
+
+  86% {
+    content: " Healthy Heal|";
+  }
+
+  87% {
+    content: " Healthy Hea|";
+  }
+
+  88% {
+    content: " Healthy He|";
+  }
+
+  89% {
+    content: " Healthy H|";
+  }
+
+  90% {
+    content: " Healthy |";
+  }
+
+  91% {
+    content: " Healthy|";
+  }
+
+  92% {
+    content: " Health|";
+  }
+
+  93% {
+    content: " Healt|";
+  }
+
+  94% {
+    content: " Heal|";
+  }
+
+  95% {
+    content: " Hea|";
+  }
+
+  96% {
+    content: " He|";
+  }
+
+  97% {
+    content: " H|";
+  }
+
+  98% {
+    content: " |";
+  }
+
+  99% {
+    content: "|";
+  }
+
+  100% {
+    content: "|";
+  }
+} */
