@@ -15,7 +15,6 @@ const UpdateItem = () => {
 
   useEffect(() => {
     const url = `https://healthy-health-warehouse.herokuapp.com/products/${productID}`;
-    console.log(url);
     fetch(url)
       .then((res) => res.json())
       .then((data) => setselectedproduct(data));
